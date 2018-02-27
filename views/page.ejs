@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        
+        <style type="text/css">
+       
+        
+        body{
+          background-color: white;
+        }
+        
+        .title{
+     
+          background-image: url(/banner.jpg) ; 
+          background-size: cover; 
+        -webkit-background-size: cover;
+          -moz-background-size: cover;
+          -o-background-size: cover;
+        background-position: center; 
+        height: 450px;
+        width:100%;
+    vertical-align: middle;
+       position:fixed;   
+  top: 0; 
+  left: 0; 
+    overflow: hidden;
+}
+
+#blank{
+  height : 465px;
+
+	}
+
+
+        
+        .userImage {
+            /*position:fixed; */
+       
+           z-index:1000;
+           position:relative;
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+    height: 450px; 
+    border:1px solid #424242;
+        }
+        
+        #display{
+            margin-top:15px;
+            margin-bottom:15px;
+    text-align:center;
+        }
+        </style>
+        
+    </head>
+    
+    <body>
+        
+
+<!--<div class = "title"></div>-->
+<!--  <div id="blank"></div>-->
+  
+<div id = "display">
+    
+<img class ="userImage" src="<%="https:\//webdev01-csh7183.c9users.io/images/"+fn0Var+".gif"%>"></img>
+<% if( typeof fn1Var !== 'undefined'){ %>
+  <img class ="userImage" src="<%="https:\//webdev01-csh7183.c9users.io/images/"+fn1Var%>"></img> 
+<% } %>
+
+
+     </div>
+      
+    </body>
+    
+</html>
