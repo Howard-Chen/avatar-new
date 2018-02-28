@@ -1,4 +1,7 @@
 //gif upload
+//var url = "https:\//webdev01-csh7183.c9users.io/";
+var url = "http:\//104.199.137.124/";
+
 var path = require('path');
 var express = require("express");
 var app = express();
@@ -98,20 +101,29 @@ function writeToData(req, res, next) {
 
 }
 
-app.post('/upload', upload.any(), createThumbnail, writeToData, function(req, res) {
+app.post('/upload', upload.array('image', 2), createThumbnail, writeToData, function(req, res) {
 
+
+//upload.any()
     // upload.array('image', 2)
-    // var file = req.file;
-    // //createThumbnail(file.path,file.filename, writeToData);
-
+     var file = req.files[0];
+   
 
     // console.log('MIMEType：%s', file.mimetype);
     // //console.log('Originalname：%s', file.originalname);
     // console.log('File.size：%s', file.size);
     // //console.log('File.path：%s', file.path);
     // console.log('File.name：%s', file.filename);
-    res.send("Upload Successful");
-    //res.end();
+    res.redirect("/qr/"+file.filename.split(".")[0]);
+   // res.send("Upload Successful");
+   // //res.end();
+
+});
+
+
+app.get("/qr/:link", function(req, res) {
+
+            res.render("qr", { linkVar: req.params.link,urlVar:url });
 
 });
 
@@ -122,7 +134,7 @@ app.get("/gallery", function(req, res) {
         else {
             obj.reverse();
             //console.log(obj.reverse());
-            res.render("gallery", { obj: obj.slice(0, 20) });
+            res.render("gallery", { obj: obj.slice(0, 20),urlVar:url });
         }
     });
 
@@ -146,7 +158,7 @@ app.get("/page/:fn", function(req, res) {
             }
             else {
                 
-                res.render("page.ejs", { fn0Var: req.params.fn, fn1Var: selected[0].fn1 });
+                res.render("page.ejs", { fn0Var: req.params.fn, fn1Var: selected[0].fn1,urlVar:url });
                 
             }
 

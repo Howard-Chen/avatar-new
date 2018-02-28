@@ -1,16 +1,79 @@
 <!DOCTYPE html>
 <html>
     <head>
-      <title>Photo Upload</title>
+      <title>Avatar Upload</title>
+        <style type="text/css">
+    
+      body{
+          background-color: black;
+          color:white;
+          
+        }
+        
+        input{
+               float:left;
+            border: 1px solid #ccc;
+    border: none;
+    color: black;
+    padding: 100px 238px;
+       margin-top: 50px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 50 px;
+    cursor: pointer;
+    clear:both;
+        }
+        
+       #file1{
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    border: 0;
+    
+}
+
+       #file2{
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    border: 0;
+}
+.custom-file-upload {
+     
+    border: 1px solid #ccc;
+   /* display: inline-block;*/
+   float:left;
+   margin-top: 50px;
+    padding: 100px 200px;
+    cursor: pointer;
+    clear:both;
+}
+  </style>
+      
     </head>
+  
     
 <body>
- <h1>Photo Upload</h1>
+ <h1>Avatar Upload</h1>
  <form action="/upload" method="post" enctype="multipart/form-data">
     <h2>File upload</h2>
-    <input type="file" name="image" >
-      <input type="file" name="image" >
-    <input type="submit" value="submit">
+    
+    <label for="file1" class="custom-file-upload">選擇 Avatar 1</label>
+    <input id="file1" type="file" name="image" >
+    
+      <label for="file2" class="custom-file-upload">選擇 Avatar 2</label>
+      <input id="file2"  type="file" name="image" >
+      
+    <input type="submit" value="上傳">
 </form>
     
 </body>
