@@ -38,7 +38,7 @@ app.set("view engine", "ejs");
 
 var dir = path.join(__dirname, 'public');
 
-app.use(express.static(dir));
+/*app.use(express.static(dir));*/
 
 app.get("/", function(req, res) {
     res.render("index");
@@ -90,7 +90,7 @@ function writeToData(req, res, next) {
             jsonfile.writeFile(dataPath, obj, function(err) {
                 if (err) { console.error(err) }
                 else {
-                    console.log("file uploaded!");
+                  /*  console.log("file uploaded!");*/
                     next();
                 }
             })
@@ -113,7 +113,7 @@ app.post('/upload', upload.array('image', 2), createThumbnail, writeToData, func
     // //console.log('Originalname：%s', file.originalname);
     // console.log('File.size：%s', file.size);
     // //console.log('File.path：%s', file.path);
-    // console.log('File.name：%s', file.filename);
+     console.log('File.name：%s', file.filename);
     res.redirect("/qr/"+file.filename.split(".")[0]);
    // res.send("Upload Successful");
    // //res.end();

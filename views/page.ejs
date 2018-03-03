@@ -1,44 +1,93 @@
 <!DOCTYPE html>
 <html>
     <head>
-        
+        <title>專屬虛擬人偶貼圖</title>
         <style type="text/css">
        
         
         body{
-          background-color: white;
+          background-color: black;
+            font-family: 微軟正黑體,Microsoft JhengHei;
+           color: white;
         }
         
-        .title{
-     
-          background-image: url(/banner.jpg) ; 
-          background-size: cover; 
-        -webkit-background-size: cover;
-          -moz-background-size: cover;
-          -o-background-size: cover;
-        background-position: center; 
-        height: 450px;
-        width:100%;
-    vertical-align: middle;
-       position:fixed;   
+        
+        .header{
+    height:35%;
+   width:auto;
+   z-index:1;
+  overflow: hidden;
+  position:fixed;   
   top: 0; 
-  left: 0; 
-    overflow: hidden;
+ left: 0;
+	right: 0;
+  background-color: black;
+      }
+        
+.title{
+     background-color: black;
+    z-index:1;
+   position:fixed;   
+   top: 35%; 
+ left: 0;
+	right: 0;
+   
+}
+h1{
+       text-align: center;
+      font-size:3em;
+      margin:20px;
+
 }
 
-#blank{
-  height : 465px;
+@media only screen and (max-width : 533px) {
+   /* Smartphone view: 1 tile */
 
+   
+ #logo{
+			max-width: 60%;
+			height: auto;
+ position: absolute;
+    top: -9999px;
+    bottom: -9999px;
+    left: -9999px;
+    right: -9999px;
+    margin: auto;
+   
 	}
+}
+
+@media only screen and (max-width : 2000px) and (min-width : 534px) {
+   /* Tablet view: 2 tiles */
+
+   
+#logo{
+		
+			height: 100%;
+			width:auto;
+ position: absolute;
+    top: -9999px;
+    bottom: -9999px;
+    left: -9999px;
+    right: -9999px;
+    margin: auto;
+   
+	}
+
+}
+
+
+#blank{
+  height : 650px;
+	}
+        
 
 
         
         .userImage {
-            /*position:fixed; */
-       
-           z-index:1000;
            position:relative;
     display: inline-block;
+      margin-top:30px;
     margin-left: auto;
     margin-right: auto;
     height: 450px; 
@@ -46,9 +95,8 @@
         }
         
         #display{
-            margin-top:15px;
-            margin-bottom:15px;
     text-align:center;
+    background-color: black;
         }
         </style>
         
@@ -57,8 +105,19 @@
     <body>
         
 
-<!--<div class = "title"></div>-->
-<!--  <div id="blank"></div>-->
+    <div class = "header">
+
+            <img id ="logo" src ="/logo.jpg"></img>
+     
+        
+       <div class = "title">
+         <h1>請長按圖片下載您的專屬貼圖</h1>
+        </div>
+        
+    </div>
+
+
+  <div id="blank"></div>
   
 <div id = "display">
     
@@ -70,9 +129,8 @@
 <% } %>
 
 
-
-
      </div>
+ 
       
     </body>
     
