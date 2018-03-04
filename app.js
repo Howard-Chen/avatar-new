@@ -134,7 +134,7 @@ app.get("/gallery", function(req, res) {
         else {
             obj.reverse();
             //console.log(obj.reverse());
-            res.render("gallery", { obj: obj.slice(0, 20),urlVar:url });
+            res.render("gallery", { obj: obj.slice(0, 50),urlVar:url });
         }
     });
 
@@ -148,9 +148,9 @@ app.get("/page/:fn", function(req, res) {
     jsonfile.readFile(dataPath, function(err, obj) {
         if (err) throw err;
         else {
-            var searchName = req.params.fn + ".gif";
+            var searchName = req.params.fn ;
             var selected = obj.filter(
-                function(data) { return data.fn0 == searchName }
+                function(data) { return data.fn0.split(".")[0] == searchName }
             );
             //console.log(selected);
             if (typeof selected[0] === 'undefined' || !selected) {
@@ -158,7 +158,7 @@ app.get("/page/:fn", function(req, res) {
             }
             else {
                 
-                res.render("page.ejs", { fn0Var: req.params.fn, fn1Var: selected[0].fn1,urlVar:url });
+                res.render("page.ejs", { fn0Var: selected[0].fn0, fn1Var: selected[0].fn1,urlVar:url });
                 
             }
 
