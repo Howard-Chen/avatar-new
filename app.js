@@ -1,6 +1,6 @@
 //gif upload
-var url = "https:\//csh-mongo-csh7183.c9users.io/";
-//var url = "http:\//104.199.137.124/";
+//var url = "https:\//csh-mongo-csh7183.c9users.io/";
+var url = "http:\//35.229.248.143/";
 
 var path = require('path');
 var express = require("express");
@@ -14,6 +14,7 @@ var fs = require("fs");
 var jsonfile = require('jsonfile')
 var dataPath = 'data.json'
 
+// app.use(express.static(dir));
 
 var storage = multer.diskStorage({
     destination: function(req, file, cb) {
@@ -39,7 +40,7 @@ app.set("view engine", "ejs");
 
 var dir = path.join(__dirname, 'public');
 
-app.use(express.static(dir));
+
 
 app.get("/", function(req, res) {
     res.render("index");
